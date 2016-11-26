@@ -30,12 +30,14 @@ public class App implements CommandLineRunner{
 		SqlParameterSource param = new MapSqlParameterSource()				
 				.addValue("id", 1);
 		Customer result = jdbcTemplate.queryForObject(sql, param,
-				new RowMapper<Customer>() {
+				/*자바 8에서 도입한 람다표현식: 익명클래스가 아닌 (인자)->반환 값*/
+				(rs, rowNum) -> new Customer(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"))
+				/*new RowMapper<Customer>() {
 					@Override
 					public Customer mapRow(ResultSet rs, int rowNum) throws SQLException{
 						return new Customer(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"));
 					}
-				});
+				}*/);
 		System.out.println("result : " + result);
 	}
 }
