@@ -35,6 +35,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- AllArgsConstructor 애너테이션 제공 -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+	    </dependency>
 	</dependencies>
 
 	<build>
